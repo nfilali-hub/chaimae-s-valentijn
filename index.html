@@ -25,16 +25,15 @@
         :root {
             --beige: #F5F1E8;
             --beige-dark: #E8E0D0;
-            --beige-light: #FFFCF5;
-            --terracotta: #E85D4E;
-            --sage: #8FB339;
-            --dusty-rose: #E8A598;
-            --warm-sand: #E6D5B8;
-            --charcoal: #2D3436;
+            --beige-light: #FAF7F0;
+            --terracotta: #D4756B;
+            --sage: #8B9A7C;
+            --dusty-rose: #C9A9A6;
+            --warm-sand: #D4C4B0;
+            --charcoal: #3D3D3D;
             --cream: #FFFCF5;
-            --magenta: #D4A5A5;
-            --gold: #C9B18A;
             --rose: #E8C4C4;
+            --gold: #C9B18A;
         }
 
         html {
@@ -52,7 +51,7 @@
             line-height: 1.6;
         }
 
-        /* Hartjes animatie */
+        /* SVG Hartjes animatie */
         .hearts-container {
             position: fixed;
             top: 0;
@@ -66,10 +65,16 @@
 
         .heart {
             position: absolute;
-            color: var(--rose);
-            font-size: 20px;
-            animation: float-up 4s ease-in infinite;
-            opacity: 0.6;
+            width: 24px;
+            height: 24px;
+            animation: float-up 6s ease-in infinite;
+            opacity: 0.7;
+        }
+
+        .heart svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--rose);
         }
 
         @keyframes float-up {
@@ -78,10 +83,10 @@
                 opacity: 0;
             }
             10% {
-                opacity: 0.6;
+                opacity: 0.7;
             }
             90% {
-                opacity: 0.6;
+                opacity: 0.7;
             }
             100% {
                 transform: translateY(-100px) scale(1) rotate(360deg);
@@ -109,9 +114,15 @@
         }
 
         .loader-heart {
-            font-size: 4rem;
+            width: 60px;
+            height: 60px;
             animation: heartbeat 1.5s ease-in-out infinite;
-            color: var(--terracotta);
+        }
+
+        .loader-heart svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--terracotta);
         }
 
         @keyframes heartbeat {
@@ -123,13 +134,13 @@
 
         .loader-text {
             font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             color: var(--charcoal);
             margin-top: 1rem;
             font-weight: 500;
         }
 
-        /* Navigation - alleen zichtbaar als je scrollt, anders verborgen */
+        /* Navigation */
         .timeline-nav {
             position: fixed;
             right: 10px;
@@ -139,7 +150,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(10px);
             padding: 12px 8px;
             border-radius: 20px;
@@ -190,9 +201,9 @@
 
         .hero h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(3rem, 12vw, 5rem);
+            font-size: clamp(2.5rem, 10vw, 4rem);
             font-weight: 800;
-            line-height: 1;
+            line-height: 1.1;
             color: var(--charcoal);
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
@@ -216,13 +227,13 @@
             cursor: pointer;
             border-radius: 50px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(232, 93, 78, 0.3);
+            box-shadow: 0 4px 15px rgba(212, 117, 107, 0.3);
             -webkit-appearance: none;
         }
 
         .start-btn:hover, .start-btn:active {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(232, 93, 78, 0.4);
+            box-shadow: 0 6px 20px rgba(212, 117, 107, 0.4);
         }
 
         /* Story sections */
@@ -305,6 +316,33 @@
             border-left: 4px solid var(--terracotta);
         }
 
+        /* Icons */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        .icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+
+        .icon-large {
+            width: 48px;
+            height: 48px;
+            display: block;
+            margin: 0 auto 12px;
+        }
+
+        .icon-large svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+
         /* Phone scene */
         .phone-scene {
             background: var(--charcoal);
@@ -315,9 +353,16 @@
         }
 
         .phone-icon {
-            font-size: 3rem;
-            margin-bottom: 12px;
-            display: block;
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            color: white;
+        }
+
+        .phone-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
         }
 
         .anxiety-meter {
@@ -344,7 +389,7 @@
         .anxiety-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, var(--terracotta), var(--magenta));
+            background: linear-gradient(90deg, var(--terracotta), var(--rose));
             transition: width 2s ease;
             border-radius: 4px;
         }
@@ -364,7 +409,7 @@
         }
 
         .trip-card {
-            background: linear-gradient(135deg, var(--sage) 0%, #7a9c5a 100%);
+            background: linear-gradient(135deg, var(--sage) 0%, #7a8b6b 100%);
             padding: 24px;
             border-radius: 16px;
             text-align: center;
@@ -375,13 +420,7 @@
             background: linear-gradient(135deg, var(--dusty-rose) 0%, var(--terracotta) 100%);
         }
 
-        .trip-icon {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        /* Final Valentine Section */
+        /* Valentine Section */
         .valentine-section {
             min-height: 100vh;
             min-height: -webkit-fill-available;
@@ -419,13 +458,15 @@
         .valentine-buttons {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
             align-items: center;
+            position: relative;
+            min-height: 300px;
         }
 
         .btn-yes {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             background: var(--terracotta);
             color: white;
@@ -434,20 +475,21 @@
             font-size: 2rem;
             font-weight: 800;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(232, 93, 78, 0.4);
+            box-shadow: 0 10px 30px rgba(212, 117, 107, 0.4);
             transition: all 0.3s ease;
             animation: pulse-btn 2s infinite;
             -webkit-appearance: none;
+            position: relative;
+            z-index: 10;
         }
 
         @keyframes pulse-btn {
-            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(232, 93, 78, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(232, 93, 78, 0.5); }
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(212, 117, 107, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(212, 117, 107, 0.5); }
         }
 
         .btn-yes:hover, .btn-yes:active {
             transform: scale(1.1);
-            background: #d94a3d;
         }
 
         .btn-yes.clicked {
@@ -458,7 +500,7 @@
         @keyframes explode {
             0% { transform: scale(1); }
             50% { transform: scale(1.2); }
-            100% { transform: scale(1); background: var(--sage); }
+            100% { transform: scale(1); }
         }
 
         .btn-no {
@@ -472,11 +514,12 @@
             border-radius: 30px;
             transition: all 0.3s;
             opacity: 0.5;
+            position: absolute;
+            bottom: 0;
         }
 
         .btn-no:hover {
             opacity: 1;
-            transform: scale(1.05);
         }
 
         /* Success message */
@@ -498,9 +541,16 @@
         }
 
         .success-heart {
-            font-size: 6rem;
+            width: 100px;
+            height: 100px;
             animation: heartbeat 1s ease-in-out infinite;
             margin-bottom: 2rem;
+        }
+
+        .success-heart svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--terracotta);
         }
 
         .success-text {
@@ -519,11 +569,11 @@
         /* Responsive */
         @media (max-width: 380px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
             }
             .btn-yes {
-                width: 160px;
-                height: 160px;
+                width: 150px;
+                height: 150px;
                 font-size: 1.5rem;
             }
         }
@@ -540,28 +590,35 @@
         /* Landscape */
         @media (max-height: 600px) and (orientation: landscape) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             .btn-yes {
                 width: 120px;
                 height: 120px;
                 font-size: 1.25rem;
             }
+            .valentine-buttons {
+                min-height: 200px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Floating Hearts -->
+    <!-- Floating Hearts Container -->
     <div class="hearts-container" id="heartsContainer"></div>
 
     <!-- Loader -->
     <div class="loader" id="loader">
-        <div class="loader-heart">??</div>
+        <div class="loader-heart">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
         <div class="loader-text">Laden...</div>
     </div>
 
-    <!-- Navigation (hidden by default, shows on scroll) -->
+    <!-- Navigation -->
     <nav class="timeline-nav" id="timelineNav">
         <div class="nav-dot active" onclick="goTo(0)" aria-label="Start"></div>
         <div class="nav-dot" onclick="goTo(1)" aria-label="De achtervolging"></div>
@@ -593,6 +650,9 @@
                 Maar niet uit beleefdheid. Gewoon omdat ik moest weten wie die geweldige vrouw was.
             </p>
             <div class="fun-fact">
+                <span class="icon" style="margin-right: 4px;">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </span>
                 Ik reed met de AUTO over het FIETSPAD door een krappe ruimte. 
                 Alles om bij jou te zijn. (Sorry, verkeersregels.)
             </div>
@@ -653,9 +713,13 @@
             </p>
             
             <div class="phone-scene">
-                <span class="phone-icon">??</span>
+                <div class="phone-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                </div>
                 <p style="color: white; font-size: 1rem; font-style: italic; margin-bottom: 8px;">
-                    "Ik bel om met je dochter te trouwen?"
+                    "Mag ik uw dochter ten huwelijk vragen?"
                 </p>
                 <div class="anxiety-meter">
                     <div class="anxiety-label">TRILLENDE STEM LEVEL</div>
@@ -718,12 +782,16 @@
             
             <div class="trips-container">
                 <div class="trip-card">
-                    <span class="trip-icon">??</span>
+                    <div class="icon-large">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
                     <h3 style="font-family: 'Syne', sans-serif; font-size: 1.25rem; margin-bottom: 4px;">Brussel</h3>
                     <p style="font-size: 0.875rem; opacity: 0.9;">Wafels en wandelen</p>
                 </div>
                 <div class="trip-card">
-                    <span class="trip-icon">??</span>
+                    <div class="icon-large">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
                     <h3 style="font-family: 'Syne', sans-serif; font-size: 1.25rem; margin-bottom: 4px;">Parijs</h3>
                     <p style="font-size: 0.875rem; opacity: 0.9;">Stad van de liefde</p>
                 </div>
@@ -764,35 +832,50 @@
             
             <div class="valentine-buttons">
                 <button class="btn-yes" id="btnYes" onclick="sayYes()">JA!</button>
-                <button class="btn-no" id="btnNo" onmouseover="moveButton()" onclick="moveButton()">Nee</button>
+                <button class="btn-no" id="btnNo" onmouseover="moveButton()" ontouchstart="moveButton()" onclick="moveButton()">Nee</button>
             </div>
         </div>
     </section>
 
     <!-- Success Message -->
     <div class="success-message" id="successMessage">
-        <div class="success-heart">??</div>
+        <div class="success-heart">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
         <h2 class="success-text">Je bent nu officieel mijn Valentijn!</h2>
         <p class="success-subtext">(Je had geen keuze anyway, je bent al getrouwd met me)</p>
     </div>
 
     <script>
+        // SVG Heart for floating animation
+        const heartSVG = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+
         // Create floating hearts
         function createHearts() {
             const container = document.getElementById('heartsContainer');
-            const heartSymbols = ['??', '??', '??', '??', '??'];
             
             setInterval(() => {
                 const heart = document.createElement('div');
                 heart.className = 'heart';
-                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.innerHTML = heartSVG;
                 heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                
+                // Random size
+                const size = Math.random() * 16 + 16;
+                heart.style.width = size + 'px';
+                heart.style.height = size + 'px';
+                
+                // Random color variation
+                const colors = ['#E8C4C4', '#D4A5A5', '#C9A9A6', '#E8A598'];
+                heart.querySelector('svg').style.fill = colors[Math.floor(Math.random() * colors.length)];
+                
                 container.appendChild(heart);
                 
-                setTimeout(() => heart.remove(), 4000);
-            }, 800);
+                setTimeout(() => heart.remove(), 6000);
+            }, 1000);
         }
 
         // Hide loader
@@ -800,7 +883,7 @@
             setTimeout(() => {
                 document.getElementById('loader').classList.add('hidden');
                 createHearts();
-            }, 1000);
+            }, 800);
         });
 
         // Navigation
@@ -857,53 +940,71 @@
         function sayYes() {
             const btn = document.getElementById('btnYes');
             btn.classList.add('clicked');
-            btn.textContent = '??';
+            btn.innerHTML = '<svg width="60" height="60" viewBox="0 0 24 24" fill="white" style="display:block;margin:auto;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
             
             // Create explosion of hearts
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => createHeartBurst(), i * 50);
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => createHeartBurst(), i * 40);
             }
             
             setTimeout(() => {
                 document.getElementById('successMessage').classList.add('active');
-            }, 600);
+            }, 800);
         }
 
         function createHeartBurst() {
             const heart = document.createElement('div');
-            heart.textContent = '??';
+            heart.innerHTML = heartSVG;
             heart.style.position = 'fixed';
             heart.style.left = '50%';
             heart.style.top = '50%';
-            heart.style.fontSize = '2rem';
+            heart.style.width = '30px';
+            heart.style.height = '30px';
             heart.style.pointerEvents = 'none';
             heart.style.zIndex = '9999';
-            heart.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+            heart.querySelector('svg').style.fill = '#D4756B';
             document.body.appendChild(heart);
             
             const angle = Math.random() * Math.PI * 2;
-            const velocity = Math.random() * 200 + 100;
+            const velocity = Math.random() * 300 + 150;
             let x = 0, y = 0;
             let vx = Math.cos(angle) * velocity;
             let vy = Math.sin(angle) * velocity;
+            let rotation = 0;
+            let rotSpeed = (Math.random() - 0.5) * 20;
             
             const animate = () => {
-                x += vx * 0.02;
-                y += vy * 0.02;
-                vy += 5; // gravity
-                heart.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
-                heart.style.opacity = 1 - (Math.abs(y) / 500);
+                x += vx * 0.016;
+                y += vy * 0.016;
+                vy += 8; // gravity
+                rotation += rotSpeed;
                 
-                if (y < 500) requestAnimationFrame(animate);
-                else heart.remove();
+                heart.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) rotate(${rotation}deg)`;
+                
+                const opacity = 1 - (Math.abs(y) / 600);
+                heart.style.opacity = opacity;
+                
+                if (opacity > 0 && y < 600) {
+                    requestAnimationFrame(animate);
+                } else {
+                    heart.remove();
+                }
             };
             requestAnimationFrame(animate);
         }
 
         function moveButton() {
             const btn = document.getElementById('btnNo');
-            const x = (Math.random() - 0.5) * 200;
-            const y = (Math.random() - 0.5) * 100;
+            const container = btn.parentElement;
+            const rect = container.getBoundingClientRect();
+            
+            // Calculate random position within container bounds
+            const maxX = rect.width - btn.offsetWidth;
+            const maxY = 200; // vertical range
+            
+            const x = Math.random() * maxX - maxX/2;
+            const y = Math.random() * maxY - maxY/2;
+            
             btn.style.transform = `translate(${x}px, ${y}px)`;
         }
 
@@ -920,7 +1021,16 @@
                 else if (diff < 0 && currentSection > 0) goTo(currentSection - 1);
             }
         }, { passive: true });
+
+        // Prevent double-tap zoom
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, { passive: false });
     </script>
 </body>
-
 </html>
